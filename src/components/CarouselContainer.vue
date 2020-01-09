@@ -44,7 +44,7 @@ export default {
 .only-message {
   align-items: center;
 }
-.only-message p {
+.only-message p:first-child {
   padding-top: 0;
 }
 
