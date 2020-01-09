@@ -63,4 +63,13 @@ p {
   margin: 0 auto;
   padding-top: 15px;
 }
+
+.VueCarousel-dot-container {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.VueCarousel-dot {
+  margin-top: 0 !important;
+}
 </style>
