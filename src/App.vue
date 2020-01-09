@@ -30,7 +30,6 @@ export default {
         const json = JSON.parse(xhr.responseText);
         const rows = json.feed.entry;
         rows.forEach(row => {
-          console.log(row.gsx$picture);
           this.submissions.push({
             name: row.gsx$name ? row.gsx$name.$t : null,
             picture:
