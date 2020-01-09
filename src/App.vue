@@ -38,7 +38,7 @@ export default {
                   .split("id=")
                   .pop()}`
               : null,
-            message: row.gsx$messsage ? row.gsx$messsage.$t : null
+            message: row.gsx$message ? row.gsx$message.$t : null
           });
         });
       };
