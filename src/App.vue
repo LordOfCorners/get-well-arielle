@@ -7,11 +7,43 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+const sheetUrl =
+  "https://spreadsheets.google.com/feeds/list/19vLtOLv1MnTfrd1nLvpDk7SrQyIg5EZ_VTAzDOuiHyE/1/public/values?alt=json";
 
 export default {
   name: "app",
   components: {
     HelloWorld
+  },
+  created: function() {
+    this.fetchData();
+  },
+  data: function() {
+    return {
+      submissions: []
+    };
+  },
+  methods: {
+    fetchData: function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", sheetUrl);
+      xhr.onload = () => {
+        const json = JSON.parse(xhr.responseText);
+        const rows = json.feed.entry;
+        rows.forEach(row => {
+          this.submissions.push({
+            name: row.gsx$name ? row.gsx$name.$t : null,
+            picture: row.gsx$picture
+              ? `https://drive.google.com/uc?export=view&id=${row.gsx$picture.$t
+                  .split("id=")
+                  .pop()}`
+              : null,
+            message: row.gsx$messsage ? row.gsx$messsage.$t : null
+          });
+        });
+      };
+      xhr.send();
+    }
   }
 };
 </script>
