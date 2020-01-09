@@ -52,16 +52,27 @@ export default {
   height: 100vh;
 }
 img {
-  max-height: 60vh;
+  max-height: 65vh;
   width: auto;
   max-width: 100%;
   padding-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    max-height: 35vh;
+  }
+
+  p {
+    font-size: 12px !important;
+  }
 }
 
 p {
   max-width: 90vw;
   margin: 0 auto;
   padding-top: 15px;
+  font-size: 16px;
 }
 
 .VueCarousel-dot-container {
