@@ -52,7 +52,7 @@ export default {
   height: 100vh;
 }
 img {
-  max-height: 70vh;
+  max-height: 60vh;
   width: auto;
   max-width: 100%;
   padding-top: 20px;
