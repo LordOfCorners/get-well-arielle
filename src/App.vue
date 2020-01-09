@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <CarouselContainer :rows="submissions" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import CarouselContainer from "./components/CarouselContainer.vue";
 const sheetUrl =
   "https://spreadsheets.google.com/feeds/list/19vLtOLv1MnTfrd1nLvpDk7SrQyIg5EZ_VTAzDOuiHyE/1/public/values?alt=json";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    CarouselContainer
   },
   created: function() {
     this.fetchData();
@@ -31,13 +30,15 @@ export default {
         const json = JSON.parse(xhr.responseText);
         const rows = json.feed.entry;
         rows.forEach(row => {
+          console.log(row.gsx$picture);
           this.submissions.push({
             name: row.gsx$name ? row.gsx$name.$t : null,
-            picture: row.gsx$picture
-              ? `https://drive.google.com/uc?export=view&id=${row.gsx$picture.$t
-                  .split("id=")
-                  .pop()}`
-              : null,
+            picture:
+              row.gsx$picture.$t !== ""
+                ? `https://drive.google.com/uc?export=view&id=${row.gsx$picture.$t
+                    .split("id=")
+                    .pop()}`
+                : null,
             message: row.gsx$message ? row.gsx$message.$t : null
           });
         });
