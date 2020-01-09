@@ -74,6 +74,10 @@ img {
   p {
     font-size: 12px !important;
   }
+
+  .VueCarousel-dot-container {
+    margin-bottom: 0 !important;
+  }
 }
 
 p {
