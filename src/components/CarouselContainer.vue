@@ -59,8 +59,12 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
+  .carousel {
+    height: 80vh;
+  }
+
   img {
-    max-height: 35vh;
+    max-height: 50vh;
   }
 
   p {
