@@ -1,5 +1,5 @@
 <template>
-  <Carousel :perPage="1" :adjustableHeight="false">
+  <Carousel :autoplay="true" :autoplayTimeout="5000" :perPage="1">
     <Slide :key="index" v-for="(row, index) in rows" class="slide">
       <div>
         <img v-if="row.picture" :src="row.picture" />

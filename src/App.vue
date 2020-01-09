@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CarouselContainer :rows="submissions" />
+    <CarouselContainer :rows="shuffledSubmissions" />
   </div>
 </template>
 
@@ -21,6 +21,11 @@ export default {
     return {
       submissions: []
     };
+  },
+  computed: {
+    shuffledSubmissions: function() {
+      return this.submissions.concat().sort(() => Math.random() - 0.5);
+    }
   },
   methods: {
     fetchData: function() {
