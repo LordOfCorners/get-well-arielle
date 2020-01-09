@@ -3,8 +3,9 @@
     <Slide :key="index" v-for="(row, index) in rows" class="slide">
       <div>
         <img v-if="row.picture" :src="row.picture" />
-        <div v-if="row.message" class="caption">
-          <p>{{ row.message }}</p>
+        <div class="caption">
+          <p v-if="row.message">{{ row.message }}</p>
+          <p v-if="row.name">From: {{ row.name }}</p>
         </div>
       </div>
     </Slide>
