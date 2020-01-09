@@ -63,6 +63,10 @@ img {
     height: 80vh;
   }
 
+  .slide {
+    height: 80vh;
+  }
+
   img {
     max-height: 50vh;
   }
