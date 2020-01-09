@@ -1,5 +1,5 @@
 <template>
-  <Carousel :autoplay="true" :autoplayTimeout="5000" :perPage="1" class="carousel">
+  <Carousel :autoplay="true" :autoplayTimeout="5000" :perPage="1" class="carousel" ref="carousel">
     <Slide
       :key="index"
       v-for="(row, index) in rows"
@@ -28,6 +28,33 @@ export default {
   },
   props: {
     rows: Array
+  },
+  created() {
+    window.addEventListener("keydown", this.keypressNavigation);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.keypressNavigation);
+  },
+  methods: {
+    keypressNavigation(e) {
+      if (e.keyCode == "37") {
+        e.preventDefault();
+
+        let direction = "backward";
+
+        this.$refs.carousel.advancePage(direction);
+        this.$refs.carousel.$emit("navigation-click", direction);
+      }
+
+      if (e.keyCode == "39") {
+        e.preventDefault();
+
+        let direction = "forward";
+
+        this.$refs.carousel.advancePage(direction);
+        this.$refs.carousel.$emit("navigation-click", direction);
+      }
+    }
   }
 };
 </script>
