@@ -42,10 +42,6 @@ img {
   max-width: 100%;
 }
 
-.caption {
-  width: 100%;
-}
-
 p {
   max-width: 80vh;
   margin: 0 auto;
