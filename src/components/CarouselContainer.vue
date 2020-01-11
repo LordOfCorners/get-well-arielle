@@ -87,11 +87,11 @@ img {
 
 @media only screen and (max-width: 600px) {
   .carousel {
-    height: 80vh;
+    height: auto;
   }
 
   .slide {
-    height: 80vh;
+    height: auto;
   }
 
   img {
