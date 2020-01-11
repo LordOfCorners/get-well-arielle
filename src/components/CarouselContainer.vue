@@ -97,8 +97,7 @@ img {
   img {
     max-height: 50vh;
   }
-
-  p {
+  y p {
     font-size: 12px !important;
   }
 
@@ -108,10 +107,10 @@ img {
 }
 
 p {
-  max-width: 90vw;
+  max-width: 65vw;
   margin: 0 auto;
   padding-top: 15px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .VueCarousel-dot-container {
